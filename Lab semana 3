@@ -1,0 +1,71 @@
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+void ex1(){
+	printf("\nEx1; Adivinhe o numero natural sorteado no intervalo de 1 a 100: \n");
+	int rn = 1 + rand()%100, g;
+	scanf("%d", &g);
+	while(g < 1 || g > 100){printf("Número inválido");scanf("%d",&g);}
+	printf("\nNumero escolhido: %d.", g);
+	if(g > rn){printf("\nVoce chutou muito alto! O valor correto e %d", rn);}
+	else if(g < rn){printf("\nVoce chutou muito baixo! O valor correto e %d", rn);}
+	else { printf("\nParabens!!! Voce acertou!");}}
+
+void ex2(){
+	printf("\n\nEx2; Adivinhe o numero natural sorteado no intervalo de 1 a 100: \n");
+	int rn = 1 + rand()%100, g,c = 0;
+	scanf("%d", &g); c++;
+	while(g < 1 || g > 100){printf("Número inválido");scanf("%d",&g);}
+	printf("\nNumero escolhido: %d.", g);
+	while( g != rn){
+		if(g > rn){printf("\nVoce chutou muito alto! Tente novamente. ");}
+		else if(g < rn){printf("\nVoce chutou muito baixo!, Tente novamente. ");}
+		c++;scanf("%d", &g);}
+	printf("\nParabens!!! Voce acertou em %d tentativas!", c);}
+	
+void ex3(){
+	printf("\n\nEx3; Adivinhe o numero natural sorteado no intervalo de 1 a 100: \n");
+	int rn = 1 + rand()%100, g,c = 0;
+	scanf("%d", &g); c++;
+	while(g < 1 || g > 100){printf("Número inválido");scanf("%d",&g);}
+	printf("\nNumero escolhido: %d.", g);
+	while( g != rn && c < 5){
+		if(g > rn){printf("\nVoce chutou muito alto! Tente novamente. ");}
+		else if(g < rn){printf("\nVoce chutou muito baixo!, Tente novamente. ");}
+		c++;scanf("%d", &g);}
+	if(g == rn){printf("\nParabens!!! Voce acertou em %d tentativas!", c);}
+	else{printf("\nVoce excedeu o numero maximo de tentativas! o numero sorteado era %d.", rn);}
+	}
+
+void ex4(){
+	printf("\n\nEx4; insira um numero inteiro: ");
+	int p, k = 1;
+	scanf("%d",&p);
+	printf("\nOs divisores de %d sao: ", p);
+	while( k <= p){ if( p%k == 0){printf("%d ",k);}k++;}
+	}
+	
+void ex5(){
+		printf("\n\nEx5; insira um numero inteiro: ");
+	int p, k = 1,an = 0, a[1000], t = 0, c;
+	scanf("%d",&p);
+	while(k <= p && an < 1000){ if( p%k == 0){a[an] = k; an++;}k++;}
+	for( c = 0; c < an; c++){t = t + a[c];}
+	if( t/2 == p){printf("\n%d e um numero inteiro perfeito", p);}
+	else{printf("\n%d NAO e um numero inteiro perfeito", p);}
+
+	}
+	
+int main(){
+	srand(time(NULL));
+	ex1();
+	ex2();
+	ex3();
+	ex4();
+	ex5();	
+}
